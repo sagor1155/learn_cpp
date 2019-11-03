@@ -15,8 +15,8 @@ class Shape
        
        //pure virtual Function
        virtual float calculateArea() = 0;
-};
-
+}; 
+ 
 class Square : public Shape
 {
     public:
