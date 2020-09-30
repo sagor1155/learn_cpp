@@ -1,4 +1,10 @@
 /*
+Vectors are same as dynamic arrays with the ability to resize itself automatically when an element is inserted or deleted, 
+with their storage being handled automatically by the container. Vector elements are placed in contiguous storage so that 
+they can be accessed and traversed using iterators. In vectors, data is inserted at the end. Inserting at the end takes 
+differential time, as sometimes there may be a need of extending the array. Removing the last element takes only constant 
+time because no resizing happens. Inserting and erasing at the beginning or in the middle is linear in time.
+
 REF: https://www.geeksforgeeks.org/vector-in-cpp-stl/
 */
 
@@ -24,13 +30,22 @@ int main()
     }
     cout << "size of vector after assigning: " << vec.size() << endl;
 
+    /* iterator */
     vector<int>::iterator it = vec.begin();
     cout << "value of iterator: ";
-    while(it != vec.end())
-    {
+    while(it != vec.end()){
         cout << *it << " ";
         it++;
     }
+
+    /* constant reverse iterator iterator */
+    vector<int>::const_reverse_iterator cit = vec.crbegin();
+    cout << "\nvalue of constant reverse iterator: ";
+    while(cit != vec.crend()){
+        cout << *cit << " ";
+        cit++;
+    }
+
     /////////////////////////
     cout << "\nOutput of begin and end: "; 
     for (auto i = vec.crbegin(); i != vec.crend(); i++) {
@@ -61,13 +76,13 @@ int main()
     cout << endl;
     /////////////////////////
 
-    cout << "reference operator vec[2] = " << vec[2]  << endl;
-    cout << "vec.at(3)   = " << vec.at(3) << endl;
+    cout << "reference operator vec[2] = " << vec[2]  << endl;  //not exception safe 
+    cout << "vec.at(3)   = " << vec.at(3) << endl;              //vector.at(index) is exception safe but vector[index] is not  
     cout << "vec.front() = " << vec.front() << endl;
     cout << "vec.back()  = " << vec.back() << endl;
 
-    int *ptr = vec.data();
-    cout << "first element is: " << *ptr << endl;
+    int* ptr = vec.data();
+    cout << "2nd element is: " << *(ptr+1) << endl;
     /////////////////////////
 
     // Assign vector 

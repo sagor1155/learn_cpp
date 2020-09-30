@@ -66,7 +66,7 @@ class complex2
 
     // The global operator function is made friend of this class so 
     // that it can access private members 
-    friend complex2 operator + (complex2 const &, complex2 const &);
+    friend complex2 operator + (complex2 const &c1, complex2 const &c2);
 };
 
 complex2 operator + (complex2 const &c1, complex2 const &c2)
